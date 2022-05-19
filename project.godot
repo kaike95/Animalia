@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Topdown-testing"
+config/name="Animalia 0.1"
 
 [display]
 
