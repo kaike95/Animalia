@@ -1,11 +1,11 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/George Bush.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=3]
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
-[ext_resource path="res://World/Tree.png" type="Texture" id=6]
+[ext_resource path="res://World/Tree.tscn" type="PackedScene" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -481,32 +481,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=52]
-points = PoolVector2Array( 9.18686, 42.3278, 25.079, 42.134, 25.8542, 47.7544, 7.6364, 47.9482 )
-
-[sub_resource type="TileSet" id=51]
-0/name = "Tree.png 0"
-0/texture = ExtResource( 6 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 32, 49 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 52 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 52 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-
 [node name="root" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 192.0 ]
@@ -541,13 +515,14 @@ limit_left = 0
 limit_top = 0
 limit_bottom = 192
 
-[node name="TreeMap" type="TileMap" parent="YSort"]
-z_index = 1
-tile_set = SubResource( 51 )
-cell_size = Vector2( 16, 16 )
-centered_textures = true
-format = 1
-tile_data = PoolIntArray( 65551, 0, 0, 131083, 0, 0, 131086, 0, 0, 196612, 0, 0, 262145, 0, 0, 327707, 0, 0, 393235, 0, 0, 458753, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 524288, 0, 0, 524300, 0, 0, 524305, 0, 0, 524313, 0, 0, 655370, 0, 0 )
+[node name="Tree" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 40, 120 )
+
+[node name="Tree2" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 216, 49 )
+
+[node name="Tree3" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 400, 144 )
 
 [node name="George Bush" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 152, 96 )
