@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/George Bush.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/lifebar.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -515,6 +516,14 @@ limit_left = 0
 limit_top = 0
 limit_bottom = 192
 
+[node name="CanvasLayer" type="CanvasLayer" parent="YSort"]
+
+[node name="Lifebar" parent="YSort/CanvasLayer" instance=ExtResource( 7 )]
+margin_left = 12.0
+margin_top = 9.0
+margin_right = 63.0
+margin_bottom = 20.0
+
 [node name="Tree" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 40, 120 )
 
@@ -535,3 +544,7 @@ position = Vector2( 192, 24 )
 
 [node name="George Bush4" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 368, 128 )
+
+[connection signal="damage_received" from="YSort/player" to="YSort/CanvasLayer/Lifebar" method="_on_player_damage_received"]
+[connection signal="changed" from="YSort/CanvasLayer/Lifebar" to="YSort/player" method="_on_Lifebar_changed"]
+[connection signal="depleted" from="YSort/CanvasLayer/Lifebar" to="YSort/player" method="_on_Lifebar_depleted"]

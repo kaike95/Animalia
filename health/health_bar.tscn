@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://health/heart.png" type="Texture" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.666667, 0.219608, 0.176471, 1 )
+border_width_top = 7
+border_width_bottom = 7
+border_color = Color( 0.219608, 0.454902, 0.211765, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.219608, 0.454902, 0.211765, 1 )
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[node name="health_bar" type="ProgressBar"]
+margin_left = 300.0
+margin_top = 168.0
+margin_right = 500.0
+margin_bottom = 190.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 100.0
+percent_visible = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -39.0
+margin_top = -42.0
+margin_right = 29.0
+margin_bottom = 21.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6

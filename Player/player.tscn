@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player2.png" type="Texture" id=2]
@@ -219,6 +219,10 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
+[sub_resource type="CapsuleShape2D" id=32]
+radius = 5.0
+height = 8.0
+
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -251,3 +255,13 @@ active = true
 parameters/playback = SubResource( 18 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, 0 )
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2( 1, -7 )
+shape = SubResource( 32 )
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
