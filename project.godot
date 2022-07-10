@@ -81,6 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Animalia 0.1"
+run/main_scene="res://root.tscn"
 
 [display]
 
